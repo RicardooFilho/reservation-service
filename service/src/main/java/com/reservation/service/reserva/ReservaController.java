@@ -30,12 +30,12 @@ public class ReservaController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Reserva>> findByUser(@RequestParam Long userId) {
+    public ResponseEntity<List<Reserva>> findByUser(@PathVariable Long userId) {
         return ResponseEntity.ok(service.findByUserId(userId));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@RequestParam Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
